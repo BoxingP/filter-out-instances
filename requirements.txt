@@ -1,0 +1,5 @@
+aws-cdk.core==1.128.0
+aws-cdk.aws_iam==1.128.0
+aws-cdk.aws_lambda==1.128.0
+boto3==1.19.6
+pyyaml<5.5, >=3.10
