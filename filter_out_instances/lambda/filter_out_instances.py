@@ -40,12 +40,11 @@ def get_rds_instances_by_tag(tags):
 
 def get_instances_by_tag(tags):
     services = ['ec2', 'rds']
-    result = []
+    result = {}
     for service in services:
         function_name = 'get_{}_instances_by_tag'.format(service)
         instances_list = eval(function_name + "(tags)")
-        if instances_list:
-            result.append({"instance_type": service, "instance_ids": instances_list})
+        result[service] = instances_list
     return result
 
 
