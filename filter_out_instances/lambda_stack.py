@@ -72,3 +72,10 @@ class LambdaStack(cdk.Stack):
                                            timeout=cdk.Duration.seconds(900)
                                            )
         lambda_function.apply_removal_policy(cdk.RemovalPolicy.DESTROY)
+
+        cdk.CfnOutput(self, 'OutputLambdaName',
+                      export_name='-'.join([construct_id, 'lambda name'.replace(' ', '-')]),
+                      value=lambda_function.function_name)
+        cdk.CfnOutput(self, 'OutputLambdaARN',
+                      export_name='-'.join([construct_id, 'lambda arn'.replace(' ', '-')]),
+                      value=lambda_function.function_arn)
